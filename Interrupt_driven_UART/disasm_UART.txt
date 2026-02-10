@@ -1,0 +1,87 @@
+
+interrupt_driven_UART.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00008000 <main>:
+    8000:	b508      	push	{r3, lr}
+    8002:	f000 f81d 	bl	8040 <uart_init>
+    8006:	4b0d      	ldr	r3, [pc, #52]	@ (803c <main+0x3c>)
+    8008:	f04f 2040 	mov.w	r0, #1073758208	@ 0x40004000
+    800c:	f8d3 1104 	ldr.w	r1, [r3, #260]	@ 0x104
+    8010:	681a      	ldr	r2, [r3, #0]
+    8012:	4291      	cmp	r1, r2
+    8014:	d0fa      	beq.n	800c <main+0xc>
+    8016:	f8d3 2104 	ldr.w	r2, [r3, #260]	@ 0x104
+    801a:	eb03 0282 	add.w	r2, r3, r2, lsl #2
+    801e:	6851      	ldr	r1, [r2, #4]
+    8020:	f8d3 2104 	ldr.w	r2, [r3, #260]	@ 0x104
+    8024:	3201      	adds	r2, #1
+    8026:	f002 023f 	and.w	r2, r2, #63	@ 0x3f
+    802a:	f8c3 2104 	str.w	r2, [r3, #260]	@ 0x104
+    802e:	f8d0 2400 	ldr.w	r2, [r0, #1024]	@ 0x400
+    8032:	0612      	lsls	r2, r2, #24
+    8034:	d5fb      	bpl.n	802e <main+0x2e>
+    8036:	f8c0 1404 	str.w	r1, [r0, #1028]	@ 0x404
+    803a:	e7e7      	b.n	800c <main+0xc>
+    803c:	000090e4 	.word	0x000090e4
+
+00008040 <uart_init>:
+    8040:	4a19      	ldr	r2, [pc, #100]	@ (80a8 <uart_init+0x68>)
+    8042:	4b1a      	ldr	r3, [pc, #104]	@ (80ac <uart_init+0x6c>)
+    8044:	f8d2 1830 	ldr.w	r1, [r2, #2096]	@ 0x830
+    8048:	f041 0101 	orr.w	r1, r1, #1
+    804c:	b410      	push	{r4}
+    804e:	f8c2 1830 	str.w	r1, [r2, #2096]	@ 0x830
+    8052:	f8d2 1840 	ldr.w	r1, [r2, #2112]	@ 0x840
+    8056:	f441 3100 	orr.w	r1, r1, #131072	@ 0x20000
+    805a:	f8c2 1840 	str.w	r1, [r2, #2112]	@ 0x840
+    805e:	681a      	ldr	r2, [r3, #0]
+    8060:	f022 02f0 	bic.w	r2, r2, #240	@ 0xf0
+    8064:	601a      	str	r2, [r3, #0]
+    8066:	681a      	ldr	r2, [r3, #0]
+    8068:	f042 02a0 	orr.w	r2, r2, #160	@ 0xa0
+    806c:	601a      	str	r2, [r3, #0]
+    806e:	6a5a      	ldr	r2, [r3, #36]	@ 0x24
+    8070:	f422 427f 	bic.w	r2, r2, #65280	@ 0xff00
+    8074:	625a      	str	r2, [r3, #36]	@ 0x24
+    8076:	6a5a      	ldr	r2, [r3, #36]	@ 0x24
+    8078:	f04f 2040 	mov.w	r0, #1073758208	@ 0x40004000
+    807c:	f442 42ee 	orr.w	r2, r2, #30464	@ 0x7700
+    8080:	625a      	str	r2, [r3, #36]	@ 0x24
+    8082:	f240 6483 	movw	r4, #1667	@ 0x683
+    8086:	f04f 22e0 	mov.w	r2, #3758153728	@ 0xe000e000
+    808a:	f242 032c 	movw	r3, #8236	@ 0x202c
+    808e:	f8c0 4408 	str.w	r4, [r0, #1032]	@ 0x408
+    8092:	f8c0 340c 	str.w	r3, [r0, #1036]	@ 0x40c
+    8096:	f8d2 3104 	ldr.w	r3, [r2, #260]	@ 0x104
+    809a:	bc10      	pop	{r4}
+    809c:	f043 0340 	orr.w	r3, r3, #64	@ 0x40
+    80a0:	f8c2 3104 	str.w	r3, [r2, #260]	@ 0x104
+    80a4:	4770      	bx	lr
+    80a6:	bf00      	nop
+    80a8:	40023000 	.word	0x40023000
+    80ac:	40020000 	.word	0x40020000
+
+000080b0 <USART2_IRQHandler>:
+    80b0:	f04f 2340 	mov.w	r3, #1073758208	@ 0x40004000
+    80b4:	f8d3 2400 	ldr.w	r2, [r3, #1024]	@ 0x400
+    80b8:	0692      	lsls	r2, r2, #26
+    80ba:	d510      	bpl.n	80de <USART2_IRQHandler+0x2e>
+    80bc:	b082      	sub	sp, #8
+    80be:	f8d3 3404 	ldr.w	r3, [r3, #1028]	@ 0x404
+    80c2:	4a07      	ldr	r2, [pc, #28]	@ (80e0 <USART2_IRQHandler+0x30>)
+    80c4:	9301      	str	r3, [sp, #4]
+    80c6:	6813      	ldr	r3, [r2, #0]
+    80c8:	9901      	ldr	r1, [sp, #4]
+    80ca:	eb02 0383 	add.w	r3, r2, r3, lsl #2
+    80ce:	6059      	str	r1, [r3, #4]
+    80d0:	6813      	ldr	r3, [r2, #0]
+    80d2:	3301      	adds	r3, #1
+    80d4:	f003 033f 	and.w	r3, r3, #63	@ 0x3f
+    80d8:	6013      	str	r3, [r2, #0]
+    80da:	b002      	add	sp, #8
+    80dc:	4770      	bx	lr
+    80de:	4770      	bx	lr
+    80e0:	000090e4 	.word	0x000090e4

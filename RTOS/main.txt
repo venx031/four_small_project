@@ -1,0 +1,215 @@
+
+PendSV_Handler.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <PendSV_Handler>:
+   0:	b480      	push	{r7}
+   2:	b087      	sub	sp, #28
+   4:	af00      	add	r7, sp, #0
+   6:	b672      	cpsid	i
+   8:	4b26      	ldr	r3, [pc, #152]	@ (a4 <PendSV_Handler+0xa4>)
+   a:	447b      	add	r3, pc
+   c:	681b      	ldr	r3, [r3, #0]
+   e:	2b00      	cmp	r3, #0
+  10:	d010      	beq.n	34 <PendSV_Handler+0x34>
+  12:	4b25      	ldr	r3, [pc, #148]	@ (a8 <PendSV_Handler+0xa8>)
+  14:	447b      	add	r3, pc
+  16:	681b      	ldr	r3, [r3, #0]
+  18:	681b      	ldr	r3, [r3, #0]
+  1a:	613b      	str	r3, [r7, #16]
+  1c:	f3ef 8309 	mrs	r3, PSP
+  20:	613b      	str	r3, [r7, #16]
+  22:	693b      	ldr	r3, [r7, #16]
+  24:	e923 0ff0 	stmdb	r3!, {r4, r5, r6, r7, r8, r9, sl, fp}
+  28:	613b      	str	r3, [r7, #16]
+  2a:	4b20      	ldr	r3, [pc, #128]	@ (ac <PendSV_Handler+0xac>)
+  2c:	447b      	add	r3, pc
+  2e:	681b      	ldr	r3, [r3, #0]
+  30:	693a      	ldr	r2, [r7, #16]
+  32:	601a      	str	r2, [r3, #0]
+  34:	2300      	movs	r3, #0
+  36:	607b      	str	r3, [r7, #4]
+  38:	23ff      	movs	r3, #255	@ 0xff
+  3a:	60bb      	str	r3, [r7, #8]
+  3c:	4b1c      	ldr	r3, [pc, #112]	@ (b0 <PendSV_Handler+0xb0>)
+  3e:	447b      	add	r3, pc
+  40:	681b      	ldr	r3, [r3, #0]
+  42:	60fb      	str	r3, [r7, #12]
+  44:	e010      	b.n	68 <PendSV_Handler+0x68>
+  46:	68fb      	ldr	r3, [r7, #12]
+  48:	689b      	ldr	r3, [r3, #8]
+  4a:	2b00      	cmp	r3, #0
+  4c:	d109      	bne.n	62 <PendSV_Handler+0x62>
+  4e:	68fb      	ldr	r3, [r7, #12]
+  50:	685b      	ldr	r3, [r3, #4]
+  52:	68ba      	ldr	r2, [r7, #8]
+  54:	429a      	cmp	r2, r3
+  56:	d904      	bls.n	62 <PendSV_Handler+0x62>
+  58:	68fb      	ldr	r3, [r7, #12]
+  5a:	685b      	ldr	r3, [r3, #4]
+  5c:	60bb      	str	r3, [r7, #8]
+  5e:	68fb      	ldr	r3, [r7, #12]
+  60:	607b      	str	r3, [r7, #4]
+  62:	68fb      	ldr	r3, [r7, #12]
+  64:	330c      	adds	r3, #12
+  66:	60fb      	str	r3, [r7, #12]
+  68:	4b12      	ldr	r3, [pc, #72]	@ (b4 <PendSV_Handler+0xb4>)
+  6a:	447b      	add	r3, pc
+  6c:	681b      	ldr	r3, [r3, #0]
+  6e:	68fa      	ldr	r2, [r7, #12]
+  70:	429a      	cmp	r2, r3
+  72:	d3e8      	bcc.n	46 <PendSV_Handler+0x46>
+  74:	4b10      	ldr	r3, [pc, #64]	@ (b8 <PendSV_Handler+0xb8>)
+  76:	447b      	add	r3, pc
+  78:	687a      	ldr	r2, [r7, #4]
+  7a:	601a      	str	r2, [r3, #0]
+  7c:	687b      	ldr	r3, [r7, #4]
+  7e:	681b      	ldr	r3, [r3, #0]
+  80:	617b      	str	r3, [r7, #20]
+  82:	697b      	ldr	r3, [r7, #20]
+  84:	e8b3 0ff0 	ldmia.w	r3!, {r4, r5, r6, r7, r8, r9, sl, fp}
+  88:	617b      	str	r3, [r7, #20]
+  8a:	697b      	ldr	r3, [r7, #20]
+  8c:	f383 8809 	msr	PSP, r3
+  90:	b662      	cpsie	i
+  92:	f06f 0e02 	mvn.w	lr, #2
+  96:	4770      	bx	lr
+  98:	bf00      	nop
+  9a:	371c      	adds	r7, #28
+  9c:	46bd      	mov	sp, r7
+  9e:	f85d 7b04 	ldr.w	r7, [sp], #4
+  a2:	4770      	bx	lr
+  a4:	00000096 	.word	0x00000096
+  a8:	00000090 	.word	0x00000090
+  ac:	0000007c 	.word	0x0000007c
+  b0:	0000006e 	.word	0x0000006e
+  b4:	00000046 	.word	0x00000046
+  b8:	0000003e 	.word	0x0000003e
+
+000000bc <Func1>:
+  bc:	b480      	push	{r7}
+  be:	b083      	sub	sp, #12
+  c0:	af00      	add	r7, sp, #0
+  c2:	2300      	movs	r3, #0
+  c4:	607b      	str	r3, [r7, #4]
+  c6:	687b      	ldr	r3, [r7, #4]
+  c8:	3301      	adds	r3, #1
+  ca:	607b      	str	r3, [r7, #4]
+  cc:	e7fb      	b.n	c6 <Func1+0xa>
+
+000000ce <Func2>:
+  ce:	b480      	push	{r7}
+  d0:	b083      	sub	sp, #12
+  d2:	af00      	add	r7, sp, #0
+  d4:	2300      	movs	r3, #0
+  d6:	607b      	str	r3, [r7, #4]
+  d8:	687b      	ldr	r3, [r7, #4]
+  da:	3301      	adds	r3, #1
+  dc:	607b      	str	r3, [r7, #4]
+  de:	e7fb      	b.n	d8 <Func2+0xa>
+
+000000e0 <task_init>:
+  e0:	b480      	push	{r7}
+  e2:	b085      	sub	sp, #20
+  e4:	af00      	add	r7, sp, #0
+  e6:	60f8      	str	r0, [r7, #12]
+  e8:	60b9      	str	r1, [r7, #8]
+  ea:	607a      	str	r2, [r7, #4]
+  ec:	687b      	ldr	r3, [r7, #4]
+  ee:	f04f 7280 	mov.w	r2, #16777216	@ 0x1000000
+  f2:	601a      	str	r2, [r3, #0]
+  f4:	687b      	ldr	r3, [r7, #4]
+  f6:	3b04      	subs	r3, #4
+  f8:	68ba      	ldr	r2, [r7, #8]
+  fa:	601a      	str	r2, [r3, #0]
+  fc:	687b      	ldr	r3, [r7, #4]
+  fe:	3b08      	subs	r3, #8
+ 100:	f06f 0202 	mvn.w	r2, #2
+ 104:	601a      	str	r2, [r3, #0]
+ 106:	687b      	ldr	r3, [r7, #4]
+ 108:	3b40      	subs	r3, #64	@ 0x40
+ 10a:	4618      	mov	r0, r3
+ 10c:	4907      	ldr	r1, [pc, #28]	@ (12c <task_init+0x4c>)
+ 10e:	4479      	add	r1, pc
+ 110:	68fa      	ldr	r2, [r7, #12]
+ 112:	4613      	mov	r3, r2
+ 114:	005b      	lsls	r3, r3, #1
+ 116:	4413      	add	r3, r2
+ 118:	009b      	lsls	r3, r3, #2
+ 11a:	440b      	add	r3, r1
+ 11c:	6018      	str	r0, [r3, #0]
+ 11e:	bf00      	nop
+ 120:	3714      	adds	r7, #20
+ 122:	46bd      	mov	sp, r7
+ 124:	f85d 7b04 	ldr.w	r7, [sp], #4
+ 128:	4770      	bx	lr
+ 12a:	bf00      	nop
+ 12c:	0000001a 	.word	0x0000001a
+
+00000130 <main>:
+ 130:	b580      	push	{r7, lr}
+ 132:	af00      	add	r7, sp, #0
+ 134:	4b1b      	ldr	r3, [pc, #108]	@ (1a4 <main+0x74>)
+ 136:	447b      	add	r3, pc
+ 138:	f103 029c 	add.w	r2, r3, #156	@ 0x9c
+ 13c:	4b1a      	ldr	r3, [pc, #104]	@ (1a8 <main+0x78>)
+ 13e:	447b      	add	r3, pc
+ 140:	4619      	mov	r1, r3
+ 142:	2000      	movs	r0, #0
+ 144:	f7ff fffe 	bl	e0 <task_init>
+ 148:	4b18      	ldr	r3, [pc, #96]	@ (1ac <main+0x7c>)
+ 14a:	447b      	add	r3, pc
+ 14c:	2202      	movs	r2, #2
+ 14e:	605a      	str	r2, [r3, #4]
+ 150:	4b17      	ldr	r3, [pc, #92]	@ (1b0 <main+0x80>)
+ 152:	447b      	add	r3, pc
+ 154:	2200      	movs	r2, #0
+ 156:	609a      	str	r2, [r3, #8]
+ 158:	4b16      	ldr	r3, [pc, #88]	@ (1b4 <main+0x84>)
+ 15a:	447b      	add	r3, pc
+ 15c:	f103 029c 	add.w	r2, r3, #156	@ 0x9c
+ 160:	4b15      	ldr	r3, [pc, #84]	@ (1b8 <main+0x88>)
+ 162:	447b      	add	r3, pc
+ 164:	4619      	mov	r1, r3
+ 166:	2001      	movs	r0, #1
+ 168:	f7ff fffe 	bl	e0 <task_init>
+ 16c:	4b13      	ldr	r3, [pc, #76]	@ (1bc <main+0x8c>)
+ 16e:	447b      	add	r3, pc
+ 170:	2201      	movs	r2, #1
+ 172:	611a      	str	r2, [r3, #16]
+ 174:	4b12      	ldr	r3, [pc, #72]	@ (1c0 <main+0x90>)
+ 176:	447b      	add	r3, pc
+ 178:	2200      	movs	r2, #0
+ 17a:	615a      	str	r2, [r3, #20]
+ 17c:	4b11      	ldr	r3, [pc, #68]	@ (1c4 <main+0x94>)
+ 17e:	447b      	add	r3, pc
+ 180:	4a11      	ldr	r2, [pc, #68]	@ (1c8 <main+0x98>)
+ 182:	447a      	add	r2, pc
+ 184:	601a      	str	r2, [r3, #0]
+ 186:	4b11      	ldr	r3, [pc, #68]	@ (1cc <main+0x9c>)
+ 188:	447b      	add	r3, pc
+ 18a:	4a11      	ldr	r2, [pc, #68]	@ (1d0 <main+0xa0>)
+ 18c:	447a      	add	r2, pc
+ 18e:	3218      	adds	r2, #24
+ 190:	601a      	str	r2, [r3, #0]
+ 192:	4b03      	ldr	r3, [pc, #12]	@ (1a0 <main+0x70>)
+ 194:	f04f 5280 	mov.w	r2, #268435456	@ 0x10000000
+ 198:	601a      	str	r2, [r3, #0]
+ 19a:	b662      	cpsie	i
+ 19c:	bf00      	nop
+ 19e:	e7fd      	b.n	19c <main+0x6c>
+ 1a0:	e000ed04 	.word	0xe000ed04
+ 1a4:	0000006a 	.word	0x0000006a
+ 1a8:	00000066 	.word	0x00000066
+ 1ac:	0000005e 	.word	0x0000005e
+ 1b0:	0000005a 	.word	0x0000005a
+ 1b4:	00000056 	.word	0x00000056
+ 1b8:	00000052 	.word	0x00000052
+ 1bc:	0000004a 	.word	0x0000004a
+ 1c0:	00000046 	.word	0x00000046
+ 1c4:	00000042 	.word	0x00000042
+ 1c8:	00000042 	.word	0x00000042
+ 1cc:	00000040 	.word	0x00000040
+ 1d0:	00000040 	.word	0x00000040

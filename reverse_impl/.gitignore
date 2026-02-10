@@ -1,0 +1,8 @@
+# Files
+.zip
+.bin
+.elf
+
+# IDE
+.vscode/
+.idea/
